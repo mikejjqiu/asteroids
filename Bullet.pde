@@ -1,23 +1,29 @@
-class Bullet {
+class Bullet extends GameObject {
 
-  int lives;
-  PVector loc;
-  PVector v;
+  int timer;
 
   Bullet() {
     lives = 1;
+    timer = 120;
     loc = new PVector(myShip.loc.x, myShip.loc.y);
     v = new PVector(myShip.direction.x, myShip.direction.y);
     v.setMag(10);
-}
+
+    s = 10;
+  } 
 
   void show() {
     stroke(255);
     noFill();
-    ellipse(loc.x, loc.y, 10, 10);
+    ellipse(loc.x, loc.y, s, s);
   }
 
   void act() {
-    loc.add(v);
+    super.act();
+
+    timer--;
+    if (timer ==0) {
+      lives = 0;
+    }
   }
 }
