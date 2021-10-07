@@ -4,35 +4,49 @@ ArrayList<GameObject> myObjects;
 
 PImage ship;
 
+PImage[] gif;
+  int i = 0;
+
+int mode;
+final int intro = 0;
+final int game = 1;
+final int gameover = 2;
+
 void setup() {
   size(800, 800);
+  mode = game;
   imageMode(CENTER);
+  rectMode(CENTER);
+  
+  
   myShip = new Ship();
   myObjects = new ArrayList<GameObject>();
   myObjects.add(myShip);
   myObjects.add(new Asteroid());
 
   ship = loadImage("ship.png");
+  
+  gif = new PImage[16];
+  while (i < 16) {
+    gif[i] = loadImage("frame_"+i+"_delay-0.01s.gif");
+    i++;
+  }
 }
 
 void draw() {
-  background(0);
-
-  myShip.show();
-  myShip.act();
-
-  int i = 0;
-  while (i<myObjects.size()) {
-    GameObject myObj = myObjects.get(i);
-    myObj.show();
-    myObj.act();
-
-    if (myObj.lives == 0) {
-      myObjects.remove(i);
-    } else {
-      i++;
-    }
+  
+    if (mode==intro) {
+    intro();
+  } else if (mode==game) {
+    game();
+  } else if (mode==gameover) {
+    gameover();
+  } else {
+    println("Error" + mode);
   }
+
+
+
 }
 
 
