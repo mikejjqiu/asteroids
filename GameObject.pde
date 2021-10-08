@@ -2,7 +2,7 @@ class GameObject {
   int lives;
   PVector loc;
   PVector v;
-  int s;
+  float s;
 
   GameObject() {
   }

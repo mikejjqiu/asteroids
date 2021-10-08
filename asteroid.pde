@@ -5,7 +5,7 @@ class Asteroid extends GameObject {
     loc = new PVector (random(0, width), random(0, height));
     v = new PVector (0, 1);
     v.rotate(random(0, TWO_PI));
-    s = 100;
+    s = 200;
   }
 
   Asteroid(int sizeA, float x, float y) {
@@ -30,10 +30,17 @@ class Asteroid extends GameObject {
       GameObject myObj = myObjects.get(i);
       if (myObj instanceof Bullet) {
         if (dist(loc.x, loc.y, myObj.loc.x, myObj.loc.y) < s/2 + myObj.s) {
-          myObjects.add(new Asteroid(s/2, loc.x, loc.y));
-          myObjects.add(new Asteroid(s/2, loc.x, loc.y));
-          myObj.lives = 0;
-          lives = 0;
+          if (s > 50) {
+            myObjects.add(new Asteroid(s/2, loc.x, loc.y));
+            myObjects.add(new Asteroid(s/2, loc.x, loc.y));
+            myObj.lives = 0;
+            lives = 0;
+            println("1");
+          } 
+          if (s < 50) { 
+            lives = lives - 1;
+            println("0");
+          }
         }
       }
       i++;
