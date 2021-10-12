@@ -14,7 +14,7 @@ final int gameover = 2;
 
 void setup() {
   size(800, 800);
-  mode = game;
+  mode = intro;
   imageMode(CENTER);
   rectMode(CENTER);
 
@@ -23,10 +23,13 @@ void setup() {
   myObjects = new ArrayList<GameObject>();
   myObjects.add(myShip);
 
-  int i = 0;
-  while (i < 10) {
-    myObjects.add(new Asteroid());
-  }
+  
+  //int i = 0;
+  //while (i < 10) {
+  //  myObjects.add(new Asteroid());
+  //}
+  myObjects.add(new Asteroid());
+  myObjects.add(new Asteroid());
 
   ship = loadImage("ship.png");
 

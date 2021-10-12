@@ -10,8 +10,7 @@ class Bullet extends GameObject {
     v = new PVector(myShip.direction.x, myShip.direction.y);
     v.add(myShip.v);
     v.setMag(3);
-    
-    s = 50;
+
   } 
 
   void show() {
@@ -20,7 +19,7 @@ class Bullet extends GameObject {
     loc.add(nudge);
     //fill(#4AD8D5);
     fill(255);
-    ellipse(loc.x, loc.y, s, s);
+    ellipse(loc.x, loc.y, 3, 3);
   }
 
   void act() {

@@ -11,7 +11,7 @@ class Ship extends GameObject {
     direction = new PVector(0, -0.2);
 
     shotTimer = 0;
-    threshold = 50;
+    threshold = 30;
   }
 
   void show() {
@@ -45,7 +45,7 @@ class Ship extends GameObject {
     if (right) { 
       direction.rotate(radians(5));
     }
-    if (space && shotTimer > threshold) {
+    if (space && shotTimer >= threshold) {
       myObjects.add(new Bullet());
       shotTimer = 0;
     }
