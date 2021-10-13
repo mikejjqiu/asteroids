@@ -30,6 +30,7 @@ void setup() {
   //}
   myObjects.add(new Asteroid());
   myObjects.add(new Asteroid());
+  myObjects.add(new ufo());
 
   ship = loadImage("ship.png");
 

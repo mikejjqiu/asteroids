@@ -10,11 +10,11 @@ class Fire extends GameObject {
     //loc = new PVector (myShip.loc.x, myShip.loc.y);
     loc = myShip.loc.copy(); //same thing
     
-    nudge = myShip.direction.copy();
+    nudge = myShip.dir.copy();
     nudge.rotate(PI);
     nudge.setMag(25);
     loc.add(nudge);
-    v = myShip.direction.copy();
+    v = myShip.dir.copy();
     v.rotate(PI+random(-0.5,0.5));
     v.setMag(3);
     

@@ -1,40 +1,39 @@
 class ufo extends GameObject {
 
-  PVector direction;
-  float y1;
-  float x1;
+  PVector dir;
+  float dx; 
+  float dy; 
 
   ufo() {
     lives = 3;
     loc = new PVector(random(0, width), random(0, height));
-    v = new PVector(0, 1);
-    direction = new PVector (0, random(-1*PI, PI));
-    s = 30;
-    v.setMag(8);
+    dir = new PVector (0, random(-1*PI, PI));
+    dx = myShip.loc.x - loc.x;
+    dy = myShip.loc.y - loc.y;
+    v = new PVector(0, 0.01);
   }
 
-  ufo(float x, float y, int sizeU) {
+  ufo(float x, float y, float vx, float vy) {
     loc = new PVector (x, y);
-    v = new PVector (0, 1);
-    v.rotate(3);
-    s = sizeU;
+    dx = vx;
+    dy = vy;
   }
 
   void show() {
-    square(loc.x, loc.y, s);
+    fill(255);
+    circle(loc.x, loc.y, s);
   }
 
 
   void act() {
     super.act();
-    
-    myObjects.add(new ufoBullet(loc.x, loc.y, direction.x, direction.y));
 
-    if (frameCount % 800 == 0) {
-      v.add(direction);
-      direction.rotate(random(0, PI));
-      myObjects.add(new ufoBullet(loc.x,loc.y, direction.x, direction.y));
+
+
+    if (frameCount % 300 == 0) {
+      v.add(dir);
+      dir.rotate(random(0, PI));
+      myObjects.add(new ufoBullet(loc.x, loc.y, dx, dy));
     }
-
   }
 }

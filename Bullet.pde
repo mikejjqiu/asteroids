@@ -7,14 +7,14 @@ class Bullet extends GameObject {
     lives = 1;
     timer = 30;
     loc = new PVector(myShip.loc.x, myShip.loc.y);
-    v = new PVector(myShip.direction.x, myShip.direction.y);
+    v = new PVector(myShip.dir.x, myShip.dir.y);
     v.add(myShip.v);
     v.setMag(3);
 
   } 
 
   void show() {
-    nudge = myShip.direction.copy();
+    nudge = myShip.dir.copy();
     nudge.setMag(25);
     loc.add(nudge);
     //fill(#4AD8D5);
