@@ -33,7 +33,7 @@ class ufo extends GameObject {
     if (frameCount % 800 == 0) {
       v.add(direction);
       direction.rotate(random(0, PI));
-      myObjects.add(new ufoBullet(loc.x,loc.y, /*x1,y1*/));
+      myObjects.add(new ufoBullet(loc.x,loc.y, direction.x, direction.y));
     }
 
   }

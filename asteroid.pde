@@ -30,16 +30,15 @@ class Asteroid extends GameObject {
       GameObject myObj = myObjects.get(i);
       if (myObj instanceof Bullet) {
         if (dist(loc.x, loc.y, myObj.loc.x, myObj.loc.y) < s/2 + myObj.s) {
-          if (s > 50) {
+          if (s > 25) {
             myObjects.add(new Asteroid (s/2, loc.x, loc.y));
             myObjects.add(new Asteroid (s/2, loc.x, loc.y));
             myObj.lives = 0;
             lives = 0;
-            println("1");
           } 
-          if (s < 50) { 
-            lives = lives - 1;
-            println("0");
+          if (s == 25) { 
+            lives = 0;
+            myObj.lives = 0;
           }
         }
       }
