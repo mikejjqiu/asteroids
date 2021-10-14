@@ -22,32 +22,29 @@ class Ship extends GameObject {
     rotate(dir.heading()+PI/2);
     noFill();
     image(ship, 0, 0, 60, 60);
-    //triangle(-25, -12.5, -25, 12.5, 25, 0); 
     popMatrix();
 
-    fill(255);
-    textSize(80);
-    text(lives, 80, 80);
+    hp(90, 40);
   }
 
   void act() {
     super.act();
 
-    if (v.mag() > 7) {
-      v.setMag(7);
+    if (v.mag() > 4) {
+      v.setMag(4);
     }
 
     shotTimer++;
 
     if (up) {
-      v.add(dir); 
+      v.add(dir);
       myObjects.add(new Fire());
     }
     if (down) v.sub(dir);
-    if (left) { 
+    if (left) {
       dir.rotate(radians(-5));
     }
-    if (right) { 
+    if (right) {
       dir.rotate(radians(5));
     }
     if (space && shotTimer >= threshold) {
@@ -56,27 +53,48 @@ class Ship extends GameObject {
     }
 
 
+    //immunity
     imtimer++;
     if (imtimer > 180) {
-      int i = 0;
-      while (i<myObjects.size()) {
-
-        GameObject myObj = myObjects.get(i);
-        if (myObj instanceof Asteroid) {
-          if (dist(loc.x, loc.y, myObj.loc.x, myObj.loc.y) < 27 + myObj.s/2) {
-            lives = lives - 1;
-            imtimer = 0;
-          }
-        }
-        i++;
-      }
+      collision();
     }
-
-    if (imtimer < 180) {  
+    if (imtimer < 180) {
       noFill();
+      stroke(#974AAF);
       circle(loc.x, loc.y, 70);
     }
-    
+
     if (lives == 0) mode = gameover;
+  }
+
+
+  //functions
+  void collision() {
+    int i = 0;
+    while (i<myObjects.size()) {
+      GameObject myObj = myObjects.get(i);
+      if (myObj instanceof Asteroid) {
+        if (dist(loc.x, loc.y, myObj.loc.x, myObj.loc.y) < 27 + myObj.s/2) {
+          lives = lives - 1;
+          imtimer = 0;
+        }
+      }
+      i++;
+    }
+  }
+
+  void hp(int x, int y) {
+    if (lives == 3) {
+      image(hp, x-50, y);
+      image(hp, x, y);
+      image(hp, x+50, y);
+    }
+    if (lives == 2) {
+      image(hp, x-50, y);
+      image(hp, x, y);
+    }
+    if (lives == 1) {
+      image(hp, x-50, y);
+    }
   }
 }

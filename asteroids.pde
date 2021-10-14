@@ -3,6 +3,7 @@ Ship myShip;
 ArrayList<GameObject> myObjects;
 
 PImage ship;
+PImage hp;
 
 PImage[] gif;
 int i = 0;
@@ -12,27 +13,24 @@ final int intro = 0;
 final int game = 1;
 final int gameover = 2;
 
+
 void setup() {
   size(800, 800);
   mode = intro;
+
   imageMode(CENTER);
   rectMode(CENTER);
+  textAlign(CENTER, CENTER);
 
 
   myShip = new Ship();
   myObjects = new ArrayList<GameObject>();
   myObjects.add(myShip);
-
-  
-  //int i = 0;
-  //while (i < 10) {
-  //  myObjects.add(new Asteroid());
-  //}
-  myObjects.add(new Asteroid());
-  myObjects.add(new Asteroid());
   myObjects.add(new ufo());
 
   ship = loadImage("ship.png");
+  hp = loadImage("hp.png");
+  hp.resize(50,50);
 
   int k = 0;
   gif = new PImage[16];

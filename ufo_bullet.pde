@@ -2,20 +2,18 @@ class ufoBullet extends GameObject {
 
   int timer;
   PVector dir;
-  float dx; 
-  float dy; 
+  float vx;
+  float vy;
 
   ufoBullet() {
-
-    dx = myShip.loc.x - loc.x;
-    dy = myShip.loc.y - loc.y;
     lives = 1;
     timer = 30;
-    v = new PVector(0, 5);
-    v.setMag(5);
+
+    vx = myShip.loc.x - loc.x;
+    vy = myShip.loc.y - loc.y;
   }
 
-  ufoBullet(float x, float y, float vx, float vy) {
+  ufoBullet(float x, float y, float dx, float dy) {
     lives = 1;
     timer = 30;
     loc = new PVector(x, y);
@@ -23,9 +21,13 @@ class ufoBullet extends GameObject {
     v = new PVector();
     v.setMag(5);
 
-    dx = vx;
-    dy = vy;
-  } 
+    vx = dx;
+    vy = dy;
+
+
+    loc.x = loc.x + vx;
+    loc.y = loc.y + vy;
+  }
 
 
   void show() {
@@ -34,11 +36,9 @@ class ufoBullet extends GameObject {
   }
 
   void act() {
-    super.act();
-
-    loc.x = loc.x+dx;
-    loc.y=loc.y+dy;
-
+    loc.x = loc.x + vx;
+    loc.y = loc.y + vy;
+    
     timer--;
     if (timer ==0) {
       lives = 0;

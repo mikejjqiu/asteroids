@@ -27,21 +27,17 @@ class Asteroid extends GameObject {
 
     int i = 0;
     while (i<myObjects.size()) {
-      
       GameObject myObj = myObjects.get(i);
-      
-      
-          
-          
       if (myObj instanceof Bullet) {
         if (dist(loc.x, loc.y, myObj.loc.x, myObj.loc.y) < s/2 + myObj.s) {
           if (s > 25) {
             myObjects.add(new Asteroid (s/2, loc.x, loc.y));
             myObjects.add(new Asteroid (s/2, loc.x, loc.y));
+            //myObjects.add(new explosion (s, loc.x, loc.y));
             myObj.lives = 0;
             lives = 0;
-          } 
-          if (s == 25) { 
+          }
+          if (s == 25) {
             lives = 0;
             myObj.lives = 0;
           }

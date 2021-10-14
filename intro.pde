@@ -3,9 +3,12 @@ void intro() {
   image(gif[i], width/2, height/2);
   if (frameCount % 5 == 0) i++;
   if (i == 16) i = 0;
-  println(i);
 
  if (mousePressed) mode = game;
+ 
+ textSize(40);
+ text("click anywhere to start",width/2, 600);
+ 
 //  fill(255);
 //  rect(width/2, 3*height/4, width/4, height/5);
 //  if (mousePressed) {
