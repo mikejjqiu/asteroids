@@ -17,9 +17,8 @@ class Bullet extends GameObject {
     nudge = myShip.dir.copy();
     nudge.setMag(25);
     loc.add(nudge);
-    //fill(#4AD8D5);
-    fill(255);
-    ellipse(loc.x, loc.y, 3, 3);
+    fill(#4AD8D5);
+    ellipse(loc.x, loc.y, 5, 3);
   }
 
   void act() {

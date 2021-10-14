@@ -1,20 +1,16 @@
-//class explosion extends GameObject {
-
-//  int t; 
+class explosion extends GameObject {
   
-//  explosion() {
-//    s = 3;
-//  }
+  int t; 
 
-//  explosion(int sizeA, float x, float y) {
-//    lives = 1;
-//    loc = new PVector (x, y);
-//    v.rotate(random(0, TWO_PI));
-//    s = sizeA;
-//    v.rotate(PI+random(-0.5, 0.5));
-//    v.setMag(3);
-//  }
-//}
+  explosion(int sizeA, float x, float y) {
+    lives = 1;
+    loc = new PVector (x, y);
+    v.rotate(random(0, TWO_PI));
+    s = sizeA;
+    v.rotate(PI+random(-0.5, 0.5));
+    v.setMag(3);
+  }
+
 
 //void show() {
 //  noStroke();
@@ -27,4 +23,4 @@
 //  t = t-10;
 //  if (t <= 0) lives = 0;
 //}
-//}
+}

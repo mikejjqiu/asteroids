@@ -20,6 +20,7 @@ class Asteroid extends GameObject {
     noFill();
     stroke(255);
     ellipse(loc.x, loc.y, s, s);
+    square(loc.x, loc.y, s/4);
   }
 
   void act() {
@@ -36,14 +37,17 @@ class Asteroid extends GameObject {
             //myObjects.add(new explosion (s, loc.x, loc.y));
             myObj.lives = 0;
             lives = 0;
+            aCount = aCount + 1;
           }
           if (s == 25) {
             lives = 0;
             myObj.lives = 0;
+            aCount = aCount + 1;
           }
         }
       }
       i++;
     }
+    if (aCount == 7*3) mode = gameover;
   }
 }

@@ -13,6 +13,7 @@ final int intro = 0;
 final int game = 1;
 final int gameover = 2;
 
+int aCount = 0;
 
 void setup() {
   size(800, 800);
@@ -26,11 +27,13 @@ void setup() {
   myShip = new Ship();
   myObjects = new ArrayList<GameObject>();
   myObjects.add(myShip);
-  myObjects.add(new ufo());
+
 
   ship = loadImage("ship.png");
   hp = loadImage("hp.png");
-  hp.resize(50,50);
+  hp.resize(50, 50);
+
+  myObjects.add(new ufo());
 
   int k = 0;
   gif = new PImage[16];
