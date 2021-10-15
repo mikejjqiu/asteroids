@@ -1,20 +1,25 @@
 int a = 0;
 
 void game() {
-  background(0);
+  tint(50);
+  image(bg1, width/2, height/2, width, height);
+  
   if (a < 3) {
-    myObjects.add(new Asteroid());
+      myObjects.add(new Asteroid());
     a++;
   }
 
 
-  //int i = 0;
-  //while (i<myObjects.size()) {
-  //  GameObject myObj = myObjects.get(i);
-  //  if (myObj instanceof ufo) {
-  //    if ( 0) myObjects.add(new ufo());
+  //if (lives == 0) {
+  //    int ii = 600;
+  //    while (ii > 0) {
+  //      ii = ii - 1;
+  //      if (ii <= 0) {
+  //        lives = 1;
+  //        spawn();
+  //      }
+  //    }
   //  }
-  //}
 
 
   int i = 0;

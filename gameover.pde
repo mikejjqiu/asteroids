@@ -1,13 +1,12 @@
 void gameover() {
 
-    fill(255);
+  noTint();
   if (myShip.lives == 0) {
-    background(255, 0, 0);
-    text("you lose", width/2, height/2);
+    image(lose, width/2, height/2, 1300, 800);
   }
 
-  if (aCount == 7*3) {
-      background(0, 255, 0);
-    text("congrats, you win", width/2, height/2);
+  if (aCount == 30) {
+    background(0);
+    image(win, width/2, height/2);
   }
 }

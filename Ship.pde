@@ -21,6 +21,7 @@ class Ship extends GameObject {
     translate(loc.x, loc.y);
     rotate(dir.heading()+PI/2);
     noFill();
+    noTint();
     image(ship, 0, 0, 60, 60);
     popMatrix();
 
@@ -30,7 +31,7 @@ class Ship extends GameObject {
   void act() {
     super.act();
 
-    v.limit(2);//if (v.mag() > 4) {
+    v.limit(3);//if (v.mag() > 4) {
     //  v.setMag(4);
     //}
 
@@ -42,14 +43,14 @@ class Ship extends GameObject {
     }
     if (down) v.sub(dir);
     if (left) {
-      dir.rotate(radians(-5));
+      dir.rotate(radians(-3));
     }
     if (right) {
-      dir.rotate(radians(5));
+      dir.rotate(radians(3));
     }
     if (space && shotTimer >= threshold) {
       myObjects.add(new Bullet());
-      shotTimer = 0;
+      //shotTimer = 0;
     }
 
 

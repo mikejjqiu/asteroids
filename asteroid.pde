@@ -33,7 +33,9 @@ class Asteroid extends GameObject {
           if (s > 25) {
             myObjects.add(new Asteroid (s/2, loc.x, loc.y));
             myObjects.add(new Asteroid (s/2, loc.x, loc.y));
-            //myObjects.add(new explosion (s, loc.x, loc.y));
+            myObjects.add(new explosion (loc.x, loc.y, 5));
+            myObjects.add(new explosion (loc.x, loc.y, 5));
+            myObjects.add(new explosion (loc.x, loc.y, 5));
             myObj.lives = 0;
             lives = 0;
             aCount = aCount + 1;
@@ -63,6 +65,6 @@ class Asteroid extends GameObject {
       }
       i++;
     }
-    if (aCount == 7*3) mode = gameover;
+    if (aCount == 30) mode = gameover;
   }
 }

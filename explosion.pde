@@ -3,28 +3,30 @@ class explosion extends GameObject {
   int t;
 
   explosion() {
-    s = int(random(1, 3));
-    v = new PVector(0,0);
+    s = 5;
+    v = new PVector(0, 0);
+    t = 255;
   }
 
   explosion(float x, float y, int sizeE) {
     lives = 1;
     loc = new PVector (x, y);
-    v = new PVector(0,0);
+    v = new PVector (0, 2);
+    v.rotate(random(0, TWO_PI));
     s = sizeE;
   }
 
   void show() {
     noStroke();
-    fill(random(0, 255), random(0, 20), random(0, 100), t);
-    square(loc.x, loc.y, s);
+    fill(255, 0, 0, t);
+    square(loc.x,loc.y, 10);
   }
 
   void act() {
-    
-    
+
+
     super.act();
-    t = t-10;
-    if (t <= 0) lives = 0;
+    //t = t-1;
+    //if (t <= 0) lives = 0;
   }
 }

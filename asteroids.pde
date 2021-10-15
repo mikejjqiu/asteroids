@@ -4,6 +4,10 @@ ArrayList<GameObject> myObjects;
 
 PImage ship;
 PImage hp;
+PImage ufo;
+PImage bg1;
+PImage win;
+PImage lose;
 
 PImage[] gif;
 int i = 0;
@@ -16,7 +20,7 @@ final int gameover = 2;
 int aCount = 0;
 
 void setup() {
-  size(800, 800);
+  size(1000, 800, FX2D);
   mode = intro;
 
   imageMode(CENTER);
@@ -32,8 +36,13 @@ void setup() {
   ship = loadImage("ship.png");
   hp = loadImage("hp.png");
   hp.resize(50, 50);
+  ufo = loadImage("ufo.png");
+  ufo.resize(80, 80);
+  bg1 = loadImage("bg1.jpg");
+  win = loadImage("win.jpg");
+  lose = loadImage("lose.jpg");
 
-  myObjects.add(new ufo());
+  //myObjects.add(new ufo());
 
   int k = 0;
   gif = new PImage[16];
