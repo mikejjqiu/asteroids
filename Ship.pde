@@ -30,9 +30,9 @@ class Ship extends GameObject {
   void act() {
     super.act();
 
-    if (v.mag() > 4) {
-      v.setMag(4);
-    }
+    v.limit(2);//if (v.mag() > 4) {
+    //  v.setMag(4);
+    //}
 
     shotTimer++;
 
@@ -60,6 +60,7 @@ class Ship extends GameObject {
     }
     if (imtimer < 180) {
       noFill();
+      strokeWeight(2);
       stroke(#974AAF);
       circle(loc.x, loc.y, 70);
     }
@@ -77,6 +78,13 @@ class Ship extends GameObject {
         if (dist(loc.x, loc.y, myObj.loc.x, myObj.loc.y) < 27 + myObj.s/2) {
           lives = lives - 1;
           imtimer = 0;
+        }
+      }
+      if (myObj instanceof ufoBullet) {
+        if (dist(loc.x, loc.y, myObj.loc.x, myObj.loc.y) < 32) {
+          lives = lives - 1;
+          imtimer = 0;
+          myObj.lives = 0;
         }
       }
       i++;

@@ -1,6 +1,6 @@
 void gameover() {
 
-
+    fill(255);
   if (myShip.lives == 0) {
     background(255, 0, 0);
     text("you lose", width/2, height/2);

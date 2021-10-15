@@ -2,8 +2,7 @@ int a = 0;
 
 void game() {
   background(0);
-  println(myObjects.size());
-  if (a < 0) {
+  if (a < 3) {
     myObjects.add(new Asteroid());
     a++;
   }

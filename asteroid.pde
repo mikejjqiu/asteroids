@@ -20,7 +20,6 @@ class Asteroid extends GameObject {
     noFill();
     stroke(255);
     ellipse(loc.x, loc.y, s, s);
-    square(loc.x, loc.y, s/4);
   }
 
   void act() {
@@ -35,6 +34,22 @@ class Asteroid extends GameObject {
             myObjects.add(new Asteroid (s/2, loc.x, loc.y));
             myObjects.add(new Asteroid (s/2, loc.x, loc.y));
             //myObjects.add(new explosion (s, loc.x, loc.y));
+            myObj.lives = 0;
+            lives = 0;
+            aCount = aCount + 1;
+          }
+          if (s == 25) {
+            lives = 0;
+            myObj.lives = 0;
+            aCount = aCount + 1;
+          }
+        }
+      }
+      if (myObj instanceof ufoBullet) {
+        if (dist(loc.x, loc.y, myObj.loc.x, myObj.loc.y) < s/2 + 5) {
+          if (s > 25) {
+            myObjects.add(new Asteroid (s/2, loc.x, loc.y));
+            myObjects.add(new Asteroid (s/2, loc.x, loc.y));
             myObj.lives = 0;
             lives = 0;
             aCount = aCount + 1;

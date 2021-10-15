@@ -1,8 +1,8 @@
 class ufoBullet extends GameObject {
 
-  int timer = 30;
+  int timer = 60;
   PVector dir;
-  
+
 
   ufoBullet() {
     lives = 1;
@@ -11,15 +11,10 @@ class ufoBullet extends GameObject {
 
   ufoBullet(float x, float y, float dx, float dy) {
     lives = 1;
-    timer = 30;
+    timer = 60;
     loc = new PVector(x, y);
-    //dir = new PVector(dx,dy);
-    
     v = new PVector(dx, dy);
-    v.setMag(10);
-
-  //   ship = new PVector(myShip.loc.x, myShip.loc.y);
-  //  PVector dir = PVector.sub(loc, ship);
+    v.setMag(7);
   }
 
 
@@ -29,9 +24,7 @@ class ufoBullet extends GameObject {
   }
 
   void act() {
-
-   super.act();
-
+    super.act();
     timer--;
     if (timer ==0) {
       lives = 0;
